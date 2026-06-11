@@ -12,8 +12,12 @@ connectDB();
 const app = express();
 
 app.use(cors({
-  origin: true,
-  credentials: true
+  origin: function (origin, callback) {
+    callback(null, true);
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 app.use(express.json());
