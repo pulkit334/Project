@@ -1,5 +1,30 @@
 const User = require('../models/User');
 
+const sendTokenCookie = (user, statusCode, res) => {
+  const token = user.getSignedJwtToken();
+  const isProduction = process.env.NODE_ENV === 'production';
+
+  const options = {
+    httpOnly: true,
+    secure: isProduction,
+    sameSite: isProduction ? 'none' : 'lax',
+    maxAge: 7 * 24 * 60 * 60 * 1000,
+    path: '/'
+  };
+
+  res.cookie('token', token, options);
+  res.status(statusCode).json({
+    success: true,
+    user: {
+      id: user._id,
+      username: user.username,
+      email: user.email,
+      avatar: user.avatar,
+      bio: user.bio
+    }
+  });
+};
+
 exports.signup = async (req, res) => {
   try {
     const { username, email, password } = req.body;
@@ -13,19 +38,7 @@ exports.signup = async (req, res) => {
     }
 
     const user = await User.create({ username, email, password });
-    const token = user.getSignedJwtToken();
-
-    res.status(201).json({
-      success: true,
-      token,
-      user: {
-        id: user._id,
-        username: user.username,
-        email: user.email,
-        avatar: user.avatar,
-        bio: user.bio
-      }
-    });
+    sendTokenCookie(user, 201, res);
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
   }
@@ -49,22 +62,19 @@ exports.login = async (req, res) => {
       return res.status(401).json({ success: false, message: 'Invalid credentials' });
     }
 
-    const token = user.getSignedJwtToken();
-
-    res.status(200).json({
-      success: true,
-      token,
-      user: {
-        id: user._id,
-        username: user.username,
-        email: user.email,
-        avatar: user.avatar,
-        bio: user.bio
-      }
-    });
+    sendTokenCookie(user, 200, res);
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
   }
+};
+
+exports.logout = async (req, res) => {
+  res.cookie('token', '', {
+    httpOnly: true,
+    expires: new Date(0),
+    path: '/'
+  });
+  res.status(200).json({ success: true, message: 'Logged out' });
 };
 
 exports.getMe = async (req, res) => {
