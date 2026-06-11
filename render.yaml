@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: backend
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: MONGO_URI
+        value: mongodb+srv://pulkittales12_db_user:BGvisZXQIpK1Penc@majorproject.uzl2v4i.mongodb.net/social-app
+      - key: JWT_SECRET
+        value: 3w_internship_social_app_secret_key_2026
+      - key: JWT_EXPIRES_IN
+        value: 7d
+      - key: NODE_ENV
+        value: production
+      - key: CLOUDINARY_CLOUD_NAME
+        value: dku3nbe9w
+      - key: CLOUDINARY_API_KEY
+        value: '191179318957869'
+      - key: CLOUDINARY_API_SECRET
+        value: nLhP_T_q7msnxaU_BTSR6EWtUWI
+      - key: CLOUDINARY_FOLDER
+        value: pulkitTesting
+
+  - type: web
+    name: frontend
+    runtime: node
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    startCommand: node server.js
