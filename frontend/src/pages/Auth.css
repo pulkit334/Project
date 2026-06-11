@@ -1,0 +1,135 @@
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  padding: 20px;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 400px;
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: 36px;
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.auth-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--primary), #0d5bbd);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 8px;
+}
+
+.auth-subtitle {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.form-group input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+.auth-btn {
+  width: 100%;
+  padding: 14px;
+  background: var(--primary);
+  color: white;
+  border-radius: var(--radius-sm);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-top: 8px;
+  transition: all 0.2s;
+}
+
+.auth-btn:hover:not(:disabled) {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(24, 119, 242, 0.35);
+}
+
+.auth-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.auth-error {
+  background: #ffebe9;
+  color: var(--danger);
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+.auth-divider {
+  text-align: center;
+  margin: 22px 0;
+  position: relative;
+}
+
+.auth-divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--border);
+}
+
+.auth-divider span {
+  background: var(--card-bg);
+  padding: 0 14px;
+  position: relative;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.auth-link-btn {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  background: var(--success);
+  color: white;
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.auth-link-btn:hover {
+  background: #36a420;
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(66, 183, 42, 0.35);
+}

@@ -1,0 +1,244 @@
+.post-card {
+  background: var(--card-bg);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 16px;
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+
+.post-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.post-header {
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.post-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-primary);
+}
+
+.avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), #0d5bbd);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.post-username {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.post-time {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.follow-btn {
+  padding: 6px 20px;
+  border-radius: var(--radius-sm);
+  font-size: 0.83rem;
+  font-weight: 600;
+  background: var(--primary);
+  color: white;
+  transition: all 0.2s;
+}
+
+.follow-btn:hover:not(:disabled) {
+  background: var(--primary-hover);
+  transform: scale(1.02);
+}
+
+.follow-btn:disabled {
+  opacity: 0.5;
+}
+
+.follow-btn.following {
+  background: var(--hover-bg);
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+}
+
+.follow-btn.following:hover {
+  background: #ffebe9;
+  color: var(--danger);
+  border-color: var(--danger);
+}
+
+.post-text {
+  padding: 0 16px 14px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.post-image-container {
+  width: 100%;
+  background: #f0f0f0;
+}
+
+.post-image {
+  width: 100%;
+  max-height: 520px;
+  object-fit: cover;
+  display: block;
+}
+
+.post-stats {
+  padding: 10px 16px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.likes-count {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.like-icon {
+  font-size: 0.8rem;
+}
+
+.comments-count {
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+.comments-count:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+.post-actions {
+  display: flex;
+  padding: 4px 8px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.action-btn {
+  flex: 1;
+  padding: 10px;
+  background: none;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: all 0.15s;
+}
+
+.action-btn:hover {
+  background: var(--hover-bg);
+  color: var(--primary);
+}
+
+.action-btn.liked {
+  color: var(--primary);
+}
+
+.comments-section {
+  padding: 14px 16px;
+  background: #fafafa;
+}
+
+.comments-list {
+  margin-bottom: 14px;
+}
+
+.comment {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.comment-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), #0d5bbd);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+
+.comment-body {
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  padding: 8px 14px;
+  flex: 1;
+  box-shadow: var(--shadow-sm);
+}
+
+.comment-user {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--text-primary);
+}
+
+.comment-text {
+  font-size: 0.9rem;
+  margin-top: 2px;
+  color: var(--text-primary);
+}
+
+.comment-form {
+  display: flex;
+  gap: 8px;
+}
+
+.comment-input {
+  flex: 1;
+  padding: 10px 16px;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  font-size: 0.9rem;
+  outline: none;
+  background: var(--card-bg);
+  transition: border-color 0.2s;
+}
+
+.comment-input:focus {
+  border-color: var(--primary);
+}
+
+.comment-submit {
+  padding: 10px 20px;
+  background: var(--primary);
+  color: white;
+  border-radius: 24px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.comment-submit:hover:not(:disabled) {
+  background: var(--primary-hover);
+  transform: scale(1.02);
+}
+
+.comment-submit:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

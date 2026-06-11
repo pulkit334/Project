@@ -1,0 +1,28 @@
+.app-container {
+  min-height: 100vh;
+}
+
+.app-container.with-navbar {
+  padding-top: 56px;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+}
+
+.page-container {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 20px 16px;
+}
+
+@media (max-width: 768px) {
+  .page-container {
+    padding: 12px 8px;
+  }
+}
