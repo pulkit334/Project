@@ -8,10 +8,6 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const storedUser = localStorage.getItem('user');
-    if (storedUser) {
-      setUser(JSON.parse(storedUser));
-    }
     API.get('/auth/me')
       .then((res) => {
         setUser(res.data.user);
@@ -39,7 +35,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logout = async () => {
-    await API.post('/auth/logout');
+    try { await API.post('/auth/logout'); } catch(e) {}
     localStorage.removeItem('user');
     setUser(null);
   };
